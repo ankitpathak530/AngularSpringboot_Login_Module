@@ -1,0 +1,7 @@
+<div class="bootstrap-wrapper">
+  <div class="container text-center mt">
+    <h1>Welcome to Dashboard</h1>
+    <h1 *ngIf="welcomeMsg">{{welcomeMsg}}</h1>
+    <button (click)="getWelcomeMsg()" mat-raised-button color="primary">Welcome Response</button>
+  </div>
+</div>

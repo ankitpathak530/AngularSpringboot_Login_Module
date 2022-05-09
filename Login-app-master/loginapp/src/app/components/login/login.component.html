@@ -1,0 +1,37 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3" style="margin-top: 20px;">
+        <div class="container text-center">
+          <img class="img-fluid logo" src="/assets/logo.png" alt="">
+        </div>
+        <h1 class="text-center">Login Here !!</h1>
+
+<!--        {{credentials | json}}-->
+        <form #loginForm="ngForm" (ngSubmit)="formSubmit()">
+          <!--                Username Field-->
+          <span *ngIf="name.invalid && name.touched" style="color: red;">Invalid Username</span>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>User Name</mat-label>
+            <input required [(ngModel)]="credentials.username" minlength="2" pattern="[a-zA-Z0-9#$@^]+$" name="username" #name="ngModel"  matInput placeholder="Enter Username">
+          </mat-form-field>
+
+
+          <!--              Password Field-->
+          <span *ngIf="password.invalid && password.touched" style="color: red;">Invalid Password</span>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Password</mat-label>
+            <input required [(ngModel)]="credentials.password" pattern="[a-zA-Z0-9$@^&*!#^]+$" minlength="4" name="password" #password="ngModel" type="password" matInput placeholder="Enter Password">
+          </mat-form-field>
+
+          <div class="container text-center">
+            <button type="submit" [disabled]="loginForm.invalid"  mat-raised-button color="primary">Login</button>
+            <button type="reset" style="margin-left:20px;" mat-raised-button color="accent">Reset</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
